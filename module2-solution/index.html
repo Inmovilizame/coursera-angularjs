@@ -17,7 +17,7 @@
       li > button {
         margin-left: 6px;
       }
-      button > span {
+      span > span {
         color: green;
       }
     </style>
@@ -36,11 +36,11 @@
      <h2>To Buy:</h2>
      <ul>
        <li ng-repeat="item in tobuy.items()">
-         Buy {{item.quantity}} {{ item.name }}
          <button ng-click="tobuy.buyItem($index)" class="btn btn-default">
            <span class="glyphicon glyphicon-shopping-cart"></span>
            Buy
          </button>
+         Buy {{item.quantity}} {{ item.name }}
        </li>
      </ul>
      <div ng-if="tobuy.allBought()" class="emptyMessage">Everything is bought!</div>
@@ -51,10 +51,10 @@
      <h2>Already Bought:</h2>
      <ul>
        <li ng-repeat="item in bought.items()">
-         Bought {{item.quantity}} {{ item.name }}
          <span class="btn btn-default">
            <span class="glyphicon glyphicon-ok"></span>
          </span>
+         Bought {{item.quantity}} {{ item.name }}
        </li>
      </ul>
      <div ng-if="bought.emptyCart()" class="emptyMessage">Nothing bought yet!</div>
