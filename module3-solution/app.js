@@ -44,7 +44,7 @@
     function FoundItems() {
         var ddo = {
             restrict: 'E',
-            templateUrl: 'foundItems.html',
+            templateUrl: 'founditems.html',
             scope: {
                 items: '<foundItems',
                 remove: '&onRemove'
