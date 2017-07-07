@@ -13,15 +13,20 @@
    <div class="container" ng-controller="NarrowItDownController as narrowit">
     <h1>Narrow Down Your Chinese Menu Choice</h1>
 
-    <div class="form-group">
-      <input type="text" placeholder="search term" class="form-control">
-    </div>
-    <div class="form-group narrow-button">
-      <button class="btn btn-primary">Narrow It Down For Me!</button>
+    <div class="row">
+      <div class="form-group col-md-2">
+        <input ng-model="narrowit.searchterm" type="text" placeholder="search term" class="form-control">
+      </div>
+      <div class="form-group narrow-button col-md-2">
+        <button ng-click="narrowit.filtermenu()" class="btn btn-primary">Narrow It Down For Me!</button>
+      </div>
     </div>
 
     <!-- found-items should be implemented as a component -->
-    <found-items found-items="...." on-remove="...."></found-items>
+    <found-items 
+        found-items="narrowit.found" 
+        on-remove="narrowit.removeElement(index)">
+    </found-items>
   </div>
 
 </body>

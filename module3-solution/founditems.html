@@ -1,0 +1,10 @@
+<div class="row">
+    <ul class="list-group">
+        <li class="col-md-4 list-group-item" ng-repeat="item in items">
+            <button 
+                ng-click="remove({index: $index})" 
+                class="btn btn-danger btn-xs">Dont</button>
+            {{item.name}}
+        </li>
+    </ul>
+</div>
