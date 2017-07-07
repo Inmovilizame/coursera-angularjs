@@ -1,10 +1,14 @@
 <div class="row">
     <ul class="list-group">
-        <li class="col-md-4 list-group-item" ng-repeat="item in items">
+        <li class="col-md-4 list-group-item menu-card" ng-repeat="item in items">
             <button 
                 ng-click="remove({index: $index})" 
-                class="btn btn-danger btn-xs">Dont</button>
-            {{item.name}}
+                class="btn btn-danger btn-block">
+                Don't want this one!
+            </button>
+            <p><small>Name:</small> {{ item.name}}</p>
+            <p><small>Short:</small> {{ item.short_name}}</p>
+            <p><small>Description:</small> {{ item.description }}</p>
         </li>
     </ul>
 </div>
