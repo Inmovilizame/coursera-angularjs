@@ -8,12 +8,18 @@
         name="firstname" 
         placeholder="First Name" 
         class="form-control" 
-        ng-model="singup.user.firstname" 
+        ng-model="$ctrl.user.firstname" 
         required
         ng-maxlength="30">
+
+        <span 
+          class="help-block"
+          ng-if="(singupForm.firstname.$error.maxlength || singupForm.firstname.$error.required) && singupForm.firstname.$touched">
+          First name is required and must not be longer than 30 characters
+        </span>
     </div>
-    <span ng-if="(singupForm.firstname.$error.maxlength || singupForm.firstname.$error.required) && singupForm.firstname.$touched">
-            First name is required and must not be longer than 30 characters
+    <span >
+            
         </span>
   </div>
 
@@ -25,13 +31,16 @@
         name="lastname" 
         placeholder="Last Name" 
         class="form-control" 
-        ng-model="singup.user.lastname" 
+        ng-model="$ctrl.user.lastname" 
         required
         ng-maxlength="30">
-    </div>
-    <span ng-if="(singupForm.lastname.$error.maxlength || singupForm.lastname.$error.required) && singupForm.lastname.$touched">
-            Last name is required and must not be longer than 30 characters
+
+        <span 
+          class="help-block"
+          ng-if="(singupForm.lastname.$error.maxlength || singupForm.lastname.$error.required) && singupForm.lastname.$touched">
+          Last name is required and must not be longer than 30 characters
         </span>
+    </div>
   </div>
 
   <div class="form-group">
@@ -42,12 +51,15 @@
         name="email" 
         placeholder="Email" 
         class="form-control" 
-        ng-model="singup.user.email" 
+        ng-model="$ctrl.user.email" 
         required>
-    </div>
-    <span ng-if="singupForm.email.$invalid && singupForm.email.$touched"> 
+
+        <span 
+          class="help-block"
+          ng-if="singupForm.email.$invalid && singupForm.email.$touched"> 
           Must be a valid email address: handle@domain format
         </span>
+    </div>
   </div>
 
   <div class="form-group">
@@ -58,12 +70,28 @@
         name="phone" 
         placeholder="Phone ###-###-####" 
         class="form-control" 
-        ng-model="singup.user.phone" 
+        ng-model="$ctrl.user.phone" 
         pattern="(\d{3})-(\d{3})-(\d{4})">
-    </div>
-    <span ng-if="singupForm.phone.$invalid && singupForm.phone.$touched">
+        
+        <span 
+          class="help-block"
+          ng-if="singupForm.phone.$invalid && singupForm.phone.$touched">
           Phone must be in the format ###-###-####.
         </span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="shortname" class="col-sm-2 control-label">Favorite Menu: </label>
+    <div class="col-sm-10">
+      <input 
+        type="text" 
+        name="shortname" 
+        placeholder="Short name of your favorite menu item" 
+        class="form-control" 
+        ng-model="$ctrl.user.short_name">
+    </div>
+
   </div>
 
   <div class="form-group">

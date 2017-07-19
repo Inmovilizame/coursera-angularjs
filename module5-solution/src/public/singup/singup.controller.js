@@ -8,9 +8,6 @@ SingupController.$inject = ['menuCategories'];
 function SingupController(menuCategories) {
   var singupCtrl = this;
   singupCtrl.menuCategories = menuCategories;
-
-  console.log("Singup Controller: ", singupCtrl.menuCategories);
 }
-
 
 })();
