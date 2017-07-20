@@ -1,0 +1,16 @@
+<div class="container">
+    <h2 id="menu-categories-title" class="text-center">My Info</h2>
+
+    <section ng-if="infoCtrl.user">
+        <user-profile user="infoCtrl.user"></user-profile>
+
+        <h3>Favorite meal:</h3>
+        <menu-item menu-item="infoCtrl.menuItem"></menu-item>
+    </section>
+
+    <section ng-if="!infoCtrl.user">
+        <p class="text-center">
+            Not Signed Up Yet. <a ui-sref="public.singup">Sign up Now!</a>
+        </p>
+    </section>
+</div>

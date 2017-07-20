@@ -1,7 +1,7 @@
-<form name='singupForm' novalidate class="form-horizontal">
+<form name='singupForm' novalidate class="form-horizontal" ng-hide="$ctrl.singupOK">
 
   <div class="form-group">
-    <label for="firstname" class="col-sm-2 control-label">Firstn ame: </label>
+    <label for="firstname" class="col-sm-2 control-label">First name: </label>
     <div class="col-sm-10">
       <input 
         type="text" 
@@ -18,9 +18,6 @@
           First name is required and must not be longer than 30 characters
         </span>
     </div>
-    <span >
-            
-        </span>
   </div>
 
   <div class="form-group">
@@ -90,8 +87,13 @@
         placeholder="Short name of your favorite menu item" 
         class="form-control" 
         ng-model="$ctrl.user.short_name">
-    </div>
 
+        <span 
+          class="help-block alert alert-danger"
+          ng-if="$ctrl.favitemError">
+            No such menu number exists
+        </span>
+    </div>
   </div>
 
   <div class="form-group">
@@ -106,3 +108,5 @@
   </div>
 
 </form>
+
+<p class="alert alert-success text-center" ng-if="$ctrl.singupOK">Your information has been saved.<p>

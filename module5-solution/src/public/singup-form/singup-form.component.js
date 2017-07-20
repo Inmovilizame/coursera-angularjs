@@ -4,9 +4,7 @@
 angular.module('public')
 .component('singupForm', {
   templateUrl: 'src/public/singup-form/singup-form.html',
-  bindings: {
-    categories: '<'
-  },
+  bindings: {},
   controller: SingupFormController
 });
 
@@ -17,19 +15,22 @@ function SingupFormController(MenuService, UserService) {
 
   $ctrl.user = {}
 
-  $crtl.favitemError = false;
+  $ctrl.favitemError = false;
+
+  $ctrl.singupOK = false;
 
   $ctrl.submit = function () {
-    console.log('SingupComponent: ', $ctrl.user);
-
     MenuService.getMenuItem($ctrl.user.short_name)
       .then(
         function (response) {
-          $crtl.favitemError = true;
+          console.log("SingupForm: Item exists, saving User!");
+          $ctrl.favitemError = false;
+          $ctrl.singupOK = true;
           UserService.setUser($ctrl.user);
         },
         function (response) {
-          $crtl.favitemError = true;
+          console.log("SingupForm: Item NOT exists!");
+          $ctrl.favitemError = true;
         });
   }
 }

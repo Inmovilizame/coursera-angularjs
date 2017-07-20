@@ -16,7 +16,7 @@
     }
 
     service.getUser = function () {
-      if (service.user.length === 0) {
+      if (Object.keys(service.user).length === 0) {
         return undefined
       }
 

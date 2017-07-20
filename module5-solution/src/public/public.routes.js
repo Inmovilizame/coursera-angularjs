@@ -45,9 +45,29 @@ function routeConfig ($stateProvider) {
       url: '/singup',
       templateUrl: 'src/public/singup/singup.html',
       controller: 'SingupController',
-      controllerAs: 'singupCtrl',
+      controllerAs: 'singupCtrl'
+    })
+    .state('public.myinfo', {
+      url: '/myinfo',
+      templateUrl: 'src/public/myinfo/myinfo.html',
+      controller: 'MyinfoController',
+      controllerAs: 'infoCtrl',
       resolve: {
-        menuCategories: function (MenuService) { return {items: 'items'}; }
+        user: ['UserService', function (UserService) { 
+          return UserService.getUser();
+        }],
+        menuItem: ['MenuService', 'UserService', function(MenuService, UserService) {
+          var user = UserService.getUser();
+          if (user) {
+            return MenuService
+              .getMenuItem(user.short_name)
+              .then(function(response) {
+                return response.data;
+              });
+          } else {
+            return undefined;
+          }
+        }]
       }
     });
 }

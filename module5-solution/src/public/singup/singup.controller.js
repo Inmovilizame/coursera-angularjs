@@ -4,10 +4,9 @@
 angular.module('public')
 .controller('SingupController', SingupController);
 
-SingupController.$inject = ['menuCategories'];
-function SingupController(menuCategories) {
+SingupController.$inject = [];
+function SingupController() {
   var singupCtrl = this;
-  singupCtrl.menuCategories = menuCategories;
 }
 
 })();
